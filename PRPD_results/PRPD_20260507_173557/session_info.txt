@@ -1,0 +1,29 @@
+StartTime: 2026-05-07 17:35:59
+ScopeIDN: TEKTRONIX,DPO4104,B010503,CF:91.1CT FV:v2.13
+LogicSource: code folder SignalAcquisition/SignalFetcher/PhaseCalculator/SignalProcessor
+
+AcquisitionPoints: 1000000
+Addr: USB0::0x0699::0x0401::B010503::INSTR
+AmplitudeBins: []
+CalibrationFactor: 12500
+CutoffFreqVoltage: 2000
+DurationMinutes: 0
+FigureVisible: true
+HysteresisFactor: 0.05
+InputBufferSize: 10000000
+MaxPointsPerRead: []
+MinPulseAbsV: []
+MinPulseDistanceSec: []
+PhaseBinDeg: []
+PhaseOffsetDeg: 0
+PlotIntervalSec: 10
+PollIntervalSec: 0.2
+PowerFreqHz: 50
+ProcessingThreshold: 0.005
+ResultRoot: C:\Users\chunyang_zhou\Desktop\匝间气泡放电实验\PRPD_results
+RmsFlushIntervalSec: 5
+SaveEachWaveform: []
+SignalLabel: 高频
+ThresholdSigma: []
+TimeoutSec: 60
+UseAcqCounter: []

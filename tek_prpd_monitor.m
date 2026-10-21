@@ -32,7 +32,6 @@ fprintf('PD threshold: %.6g V\n', cfg.ProcessingThreshold);
 
 scope = [];
 fig = createPrpdFigure(cfg);
-cleanupObj = onCleanup(@cleanup);
 rmsLogFile = fullfile(outputDir, 'ch3_rms_log.xlsx');
 
 intervalStorage = {};
@@ -53,6 +52,7 @@ lastRmsFlush = tic;
 
 try
     scope = visadev(cfg.Addr);
+    cleanupObj = onCleanup(@() delete(scope)); %#ok<NASGU>
     scope.ByteOrder = 'big-endian';
     scope.Timeout = cfg.TimeoutSec;
     setBufferIfAvailable(scope, cfg.InputBufferSize);
@@ -147,15 +147,7 @@ catch ME
     end
 end
 
-    function cleanup()
-        if ~isempty(scope)
-            try
-                clear scope
-            catch
-            end
-        end
-        fprintf('Session ended. Acquisitions: %d\n', acqCount);
-    end
+fprintf('Session ended. Acquisitions: %d\n', acqCount);
 end
 
 function cfg = parseInputs(varargin)
